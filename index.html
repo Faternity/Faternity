@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faternity - Product Designer</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#3b82f6',secondary:'#64748b'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+html {
+scroll-behavior: smooth;
+}
+body {
+font-family: 'Inter', sans-serif;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+.skill-bar {
+height: 8px;
+border-radius: 4px;
+background-color: #e5e7eb;
+overflow: hidden;
+}
+.skill-progress {
+height: 100%;
+border-radius: 4px;
+background-color: #3b82f6;
+transition: width 1s ease-in-out;
+}
+.timeline-item {
+position: relative;
+padding-left: 28px;
+}
+.timeline-item::before {
+content: "";
+position: absolute;
+left: 0;
+top: 0;
+bottom: 0;
+width: 2px;
+background-color: #e5e7eb;
+}
+.timeline-dot {
+position: absolute;
+left: -5px;
+width: 12px;
+height: 12px;
+border-radius: 50%;
+background-color: #3b82f6;
+z-index: 1;
+}
+.project-card {
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+.custom-checkbox {
+appearance: none;
+-webkit-appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #d1d5db;
+border-radius: 4px;
+outline: none;
+cursor: pointer;
+position: relative;
+}
+.custom-checkbox:checked {
+background-color: #3b82f6;
+border-color: #3b82f6;
+}
+.custom-checkbox:checked::after {
+content: "";
+position: absolute;
+top: 3px;
+left: 6px;
+width: 6px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 bg-white shadow-sm">
+<div class="container mx-auto px-6 py-4">
+<div class="flex items-center justify-between">
+<a href="#" class="text-2xl font-['Pacifico'] text-primary">Faternity</a>
+<nav class="hidden md:flex space-x-8">
+<a href="#about" class="text-gray-600 hover:text-primary transition-colors">About</a>
+<a href="#experience" class="text-gray-600 hover:text-primary transition-colors">Experience</a>
+<a href="#contact" class="text-gray-600 hover:text-primary transition-colors">Contact</a>
+</nav>
+<button class="md:hidden flex items-center justify-center w-10 h-10 !rounded-button">
+<i class="ri-menu-line text-xl"></i>
+</button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative overflow-hidden">
+<div class="absolute inset-0">
+<img src="https://static.readdy.ai/image/6f3cb96eb52a614ef0e4e71bfd075968/7ae8eb97c11874867c1d4006cbf012e2.png" alt="Banner Background" class="w-full h-full object-cover">
+<div class="absolute inset-0 bg-black/30"></div>
+</div>
+<div class="container mx-auto px-6 py-20 md:py-28 flex flex-col md:flex-row items-center relative">
+<div class="md:w-1/2 mb-12 md:mb-0 z-10">
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">Faternity</h1>
+<p class="text-xl md:text-2xl text-gray-200 mb-8">Certified Administrator & Discord Server Manager</p>
+<p class="text-gray-300 mb-8 max-w-lg">Crafting engaging community experiences that bring people together. With over 5 years of experience, I help build and manage thriving Discord communities through effective leadership.</p>
+<div class="flex space-x-4">
+<a href="#contact" class="px-6 py-3 bg-primary text-white font-medium !rounded-button hover:bg-blue-600 transition-colors whitespace-nowrap">Get in Touch</a>
+<a href="#portfolio" class="px-6 py-3 border border-white/30 text-white font-medium !rounded-button hover:bg-white/10 transition-colors whitespace-nowrap">View My Work</a>
+</div>
+<div class="flex mt-8 space-x-5">
+<div class="flex items-center bg-white px-4 py-2 rounded-full shadow-sm">
+<i class="ri-discord-fill text-gray-700 mr-2"></i>
+<span class="text-gray-700 font-medium">faternity</span>
+</div>
+</div>
+</div>
+<div class="md:w-1/2 relative z-10">
+<div class="w-72 h-72 md:w-96 md:h-96 mx-auto rounded-full overflow-hidden border-4 border-white shadow-xl bg-white">
+<img src="https://static.readdy.ai/image/6f3cb96eb52a614ef0e4e71bfd075968/503a241fbf0ac24638fb8b9f508b282f.png" alt="Faternity" class="w-full h-full object-cover object-center">
+</div>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent"></div>
+</section>
+<!-- About Me Section -->
+<section id="about" class="py-20 bg-custom-light">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">About Me</h2>
+<div class="w-20 h-1 bg-primary mx-auto"></div>
+</div>
+<div class="flex flex-col md:flex-row items-center gap-12">
+<div class="md:w-2/5">
+<div class="relative rounded-lg overflow-hidden shadow-xl">
+<img src="https://readdy.ai/api/search-image?query=professional%20gamer%20workspace%20setup%20with%20multiple%20monitors%2C%20RGB%20lighting%2C%20gaming%20chair%2C%20high-end%20gaming%20peripherals%2C%20clean%20modern%20gaming%20room%2C%20side%20view%20of%20a%20young%20male%20gamer%20sitting%20at%20desk%2C%20ambient%20lighting%2C%20professional%20streaming%20setup&width=600&height=800&seq=2&orientation=portrait" alt="About Faternity" class="w-full h-auto">
+</div>
+</div>
+<div class="md:w-3/5">
+<h3 class="text-2xl font-bold text-gray-900 mb-4">Who I Am</h3>
+<p class="text-gray-600 mb-6">I'm a passionate Community Manager and Product Designer with extensive experience in managing large-scale Discord communities. Over the past 5 years, I've successfully grown and moderated servers with 100,000+ members, implementing effective moderation systems and fostering engaging environments.</p>
+<p class="text-gray-600 mb-6">My expertise lies in staff management and community building, where I've led teams of 50+ moderators across different time zones. I've developed comprehensive training programs, automated workflows, and engagement strategies that have resulted in 40% increased member retention and 60% improved response times.</p>
+<p class="text-gray-600 mb-8">When I'm not managing communities or designing, I create educational content for aspiring community managers, organize virtual events, and collaborate with other server owners to share best practices and innovative engagement strategies.</p>
+<div class="grid grid-cols-2 gap-6 mb-8">
+<div>
+<h4 class="text-lg font-semibold text-gray-900 mb-3">Education</h4>
+<p class="text-gray-600">Indian Institute of Technology<br>Bachelor's in Computer Engineering</p>
+</div>
+<div>
+<h4 class="text-lg font-semibold text-gray-900 mb-3">Location</h4>
+<p class="text-gray-600">Chandigarh, India<br>Available for remote work worldwide</p>
+</div>
+</div>
+<a href="#contact" class="inline-flex items-center px-6 py-3 bg-primary text-white font-medium !rounded-button hover:bg-blue-600 transition-colors whitespace-nowrap">
+<i class="ri-mail-line mr-2"></i> Contact Me
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience & Skills Section -->
+<section id="experience" class="py-20 bg-custom-light">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Experience & Skills</h2>
+<div class="w-20 h-1 bg-primary mx-auto"></div>
+</div>
+<div class="flex flex-col lg:flex-row gap-12">
+<!-- Skills -->
+<div class="lg:w-1/2">
+<h3 class="text-2xl font-bold text-gray-900 mb-8">My Skills</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+<div class="bg-white p-6 rounded-lg shadow-sm">
+<div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-lg mb-4">
+<i class="ri-team-line text-primary text-xl"></i>
+</div>
+<h4 class="text-lg font-semibold text-gray-900 mb-2">Staff Managing</h4>
+<p class="text-gray-600 text-sm mb-4">Leading and coordinating teams across different time zones with effective management strategies.</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-sm">
+<div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-lg mb-4">
+<i class="ri-code-line text-primary text-xl"></i>
+</div>
+<h4 class="text-lg font-semibold text-gray-900 mb-2">Front-end Development</h4>
+<p class="text-gray-600 text-sm mb-4">Translating designs into responsive, accessible code.</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-sm">
+<div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-lg mb-4">
+<i class="ri-discord-line text-primary text-xl"></i>
+</div>
+<h4 class="text-lg font-semibold text-gray-900 mb-2">Discord Server Managing</h4>
+<p class="text-gray-600 text-sm mb-4">Managing large-scale Discord communities with effective moderation and engagement strategies.</p>
+</div>
+<div class="bg-white p-6 rounded-lg shadow-sm">
+<div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-lg mb-4">
+<i class="ri-team-line text-primary text-xl"></i>
+</div>
+<h4 class="text-lg font-semibold text-gray-900 mb-2">Design Leadership</h4>
+<p class="text-gray-600 text-sm mb-4">Mentoring teams and establishing design systems and processes.</p>
+</div>
+</div>
+<h4 class="text-lg font-semibold text-gray-900 mb-6">Technical Proficiency</h4>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700">Discord Managing</span>
+<span class="text-gray-500">98%</span>
+</div>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 98%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700">Staff Managing</span>
+<span class="text-gray-500">95%</span>
+</div>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 95%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700">Developing</span>
+<span class="text-gray-500">85%</span>
+</div>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 85%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="text-gray-700">Team Building</span>
+<span class="text-gray-500">92%</span>
+</div>
+<div class="skill-bar">
+<div class="skill-progress" style="width: 92%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Work Experience -->
+<div class="lg:w-1/2">
+<h3 class="text-2xl font-bold text-gray-900 mb-8">Work Experience</h3>
+<div class="space-y-10">
+<div class="timeline-item pb-10">
+<div class="timeline-dot" style="top: 8px;"></div>
+<h4 class="text-lg font-semibold text-gray-900">Certified Administrator</h4>
+<div class="flex items-center text-gray-500 mb-3">
+<span>Discord Community</span>
+<span class="mx-2">•</span>
+<span>2022 - Present</span>
+</div>
+<p class="text-gray-600">Leading a team of 50+ moderators across multiple time zones. Implemented automated moderation systems and engagement strategies that increased member retention by 40% and improved response times by 60%.</p>
+<div class="flex flex-wrap gap-2 mt-3">
+<span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">Product Strategy</span>
+<span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">Design Systems</span>
+<span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">Team Leadership</span>
+</div>
+</div>
+<div class="timeline-item pb-10">
+<div class="timeline-dot" style="top: 8px;"></div>
+<h4 class="text-lg font-semibold text-gray-900">Staff Manager</h4>
+<div class="flex items-center text-gray-500 mb-3">
+<span>Gaming Community</span>
+<span class="mx-2">•</span>
+<span>2019 - 2022</span>
+</div>
+<p class="text-gray-600">Managed a diverse team of community moderators, developed comprehensive training programs, and implemented engagement strategies that grew the community by 35% and improved member satisfaction by 25%.</p>
+<div class="flex flex-wrap gap-2 mt-3">
+<span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">Mobile Design</span>
+<span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">User Research</span>
+<span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">Prototyping</span>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot" style="top: 8px;"></div>
+<h4 class="text-lg font-semibold text-gray-900">UI Designer</h4>
+<div class="flex items-center text-gray-500 mb-3">
+<span>DigitalCraft Agency</span>
+<span class="mx-2">•</span>
+<span>2017 - 2019</span>
+</div>
+<p class="text-gray-600">Created visual designs for various client projects across industries including fintech, healthcare, and e-commerce. Collaborated closely with developers to ensure design implementation fidelity.</p>
+<div class="flex flex-wrap gap-2 mt-3">
+<span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">Visual Design</span>
+<span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">Branding</span>
+<span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">Client Communication</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-custom-light">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+<div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+<p class="text-gray-600 max-w-2xl mx-auto">Have a project in mind or want to discuss potential opportunities? I'd love to hear from you. Fill out the form below or reach out through my social channels.</p>
+</div>
+<div class="flex flex-col lg:flex-row gap-12">
+<div class="lg:w-1/2">
+<form class="bg-white p-8 rounded-lg shadow-sm">
+<div class="mb-6">
+<label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+<input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Your Name">
+</div>
+<div class="mb-6">
+<label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+<input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="john@example.com">
+</div>
+<div class="mb-6">
+<label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+<input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Project Inquiry">
+</div>
+<div class="mb-6">
+<label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
+<textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Tell me about your project..."></textarea>
+</div>
+<div class="mb-6 flex items-center">
+<input type="checkbox" id="consent" class="custom-checkbox mr-3">
+<label for="consent" class="text-gray-600 text-sm">I agree to the processing of my personal data in accordance with the Privacy Policy</label>
+</div>
+<button type="submit" class="w-full px-6 py-3 bg-primary text-white font-medium !rounded-button hover:bg-blue-600 transition-colors whitespace-nowrap">Send Message</button>
+</form>
+</div>
+<div class="lg:w-1/2">
+<div class="bg-white p-8 rounded-lg shadow-sm h-full">
+<h3 class="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+<div class="space-y-6 mb-8">
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-lg mr-4">
+<i class="ri-map-pin-line text-primary text-xl"></i>
+</div>
+<div>
+<h4 class="text-lg font-semibold text-gray-900 mb-1">Location</h4>
+<p class="text-gray-600">Chandigarh<br>India</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-lg mr-4">
+<i class="ri-mail-line text-primary text-xl"></i>
+</div>
+<div>
+<h4 class="text-lg font-semibold text-gray-900 mb-1">Email</h4>
+<p class="text-gray-600">faternityx@gmail.com<br>design@faternity.gg</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="rounded-lg overflow-hidden h-64 mb-6">
+<img src="https://public.readdy.ai/gen_page/map_placeholder_1280x720.png" alt="Location Map" class="w-full h-full object-cover">
+</div>
+<div class="flex items-center bg-gray-100 px-4 py-2 rounded-full">
+<i class="ri-discord-fill text-gray-700 mr-2"></i>
+<span class="text-gray-700 font-medium">faternity</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-custom-dark text-white py-12">
+<div class="container mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-center mb-8">
+<a href="#" class="text-2xl font-['Pacifico'] text-white mb-6 md:mb-0">Faternity</a>
+<nav class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+<a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a>
+<a href="#experience" class="text-gray-300 hover:text-white transition-colors">Experience</a>
+<a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
+</nav>
+</div>
+<hr class="border-gray-700 mb-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-400 mb-4 md:mb-0">© 2025 Faternity. All rights reserved.</p>
+<div class="flex items-center">
+<i class="ri-discord-fill text-gray-400 mr-2"></i>
+<span class="text-gray-400">faternity</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- Back to Top Button -->
+<button id="backToTop" class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-blue-600">
+<i class="ri-arrow-up-line text-xl"></i>
+</button>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Back to top button functionality
+const backToTopButton = document.getElementById('backToTop');
+window.addEventListener('scroll', function() {
+if (window.pageYOffset > 300) {
+backToTopButton.classList.remove('opacity-0', 'invisible');
+backToTopButton.classList.add('opacity-100', 'visible');
+} else {
+backToTopButton.classList.remove('opacity-100', 'visible');
+backToTopButton.classList.add('opacity-0', 'invisible');
+}
+});
+backToTopButton.addEventListener('click', function() {
+window.scrollTo({
+top: 0,
+behavior: 'smooth'
+});
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Skill bars animation
+const skillBars = document.querySelectorAll('.skill-progress');
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.style.width = entry.target.parentElement.dataset.width || entry.target.style.width;
+observer.unobserve(entry.target);
+}
+});
+}, { threshold: 0.5 });
+skillBars.forEach(bar => {
+const width = bar.style.width;
+bar.style.width = '0';
+bar.parentElement.dataset.width = width;
+observer.observe(bar);
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+if (targetId === '#') return;
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+window.scrollTo({
+top: targetElement.offsetTop - 80,
+behavior: 'smooth'
+});
+}
+});
+});
+});
+</script>
+</body>
+</html>
